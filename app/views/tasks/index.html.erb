@@ -1,0 +1,23 @@
+<h1> My Task Manager 2.0 </h1>
+<h4> My todo list</h4>
+<ul>
+  <% @tasks.each do |task| %>
+<li>
+  <input type="checkbox" class="check" <%= task.completed == true ? "checked" : "" %>>
+  <%= link_to task.title, task_path(task) %>
+  <%= link_to '[X]', task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+</li>
+    <!-- <li><input type="checkbox" name="task[completed]" class="check"><%= task.title %></li> -->
+  <% end %>
+</ul>
+
+<div class="mt">
+  <%= link_to "+ add a task", new_task_path %>
+</div>
+
+
+
+
+
